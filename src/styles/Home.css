@@ -1,0 +1,59 @@
+/* Container styling */
+.home-container {
+  text-align: left;
+  padding: 2rem;
+  margin-top: 10% !important;
+}
+
+/* Header styles with distinct colors */
+.home-h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: black; /* Blue */
+  margin-bottom: 1rem;
+}
+
+.home-h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #9acbd0; /* Red */
+  margin-bottom: 1rem;
+}
+
+.home-p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+/* Button styling */
+.start-btn {
+  background-color: #006a71; /* Green background */
+  color: #f2efe7;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-btn:hover {
+  transform: translateX(5px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Slanted arrow icon */
+.arrow-icon {
+  margin-left: 0.5rem;
+  transform: skewX(-20deg);
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .home-container {
+    margin-top: 30% !important;
+  }
+}
