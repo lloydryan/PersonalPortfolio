@@ -1,0 +1,49 @@
+.glass-card {
+  display: inline-block; /* Only as wide as its content */
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 15px; /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+  padding: 20px; /* Padding for content spacing */
+}
+
+.social-link {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  background-color: #f8f9fa;
+  margin: 15px;
+}
+
+.social-link:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-link:nth-child(1):hover {
+  background: #1877f2;
+  color: #fff;
+}
+
+.social-link:nth-child(2):hover {
+  background: #0077b5;
+  color: #fff;
+}
+
+.social-link:nth-child(3):hover {
+  background: #333;
+  color: #fff;
+}
+
+.social-link:nth-child(4):hover {
+  background: #d44638;
+  color: #fff;
+}
