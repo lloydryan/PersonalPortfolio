@@ -14,6 +14,7 @@ const groupedTechStack = {
 const About = () => {
   return (
     <div className="container text-center p-5">
+      <br />
       <h1 className="text-3xl font-bold mt-5">About Me</h1>
       <h1 className="text-center">Hi 👋, I'm Lloyd Ryan Largo</h1>
       <h3 className="text-center">

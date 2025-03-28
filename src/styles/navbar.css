@@ -1,7 +1,3 @@
-/* Navbar.module.css */
-body {
-  background-color: pink;
-}
 .navbar {
   background: rgba(255, 255, 255, 0.1) !important; /* Transparent background */
   backdrop-filter: blur(15px) !important; /* Glass effect */
@@ -21,6 +17,11 @@ body {
   color: #ffffff !important;
   text-transform: uppercase;
 }
+.navbar-logo {
+  height: 35px; /* Adjust as needed */
+  width: 50px; /* Maintain aspect ratio */
+  margin-left: 20px;
+}
 
 /* Fixes for navigation links */
 .navbar-nav {
@@ -34,7 +35,7 @@ body {
 }
 
 .nav-link {
-  color: #ffffff !important;
+  color: #006a71 !important;
   padding: 8px 15px !important;
   font-size: 1rem;
   font-weight: 500;
@@ -43,16 +44,16 @@ body {
 
 /* Active navbar link */
 .nav-link.active {
-  background-color: white !important;
-  color: black !important;
+  background-color: #006a71 !important;
+  color: #f2efe7 !important;
   border-radius: 50px; /* Same as navbar */
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 /* Ensure hover effect is still applied */
 .nav-link:hover {
-  background-color: white !important;
-  color: black !important;
+  background-color: #006a71 !important;
+  color: #f2efe7 !important;
   border-radius: 50px; /* Same as navbar */
 
   transform: scale(1.05);

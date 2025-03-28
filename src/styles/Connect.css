@@ -4,9 +4,12 @@
   backdrop-filter: blur(10px); /* Apply blur effect */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
   border-radius: 15px; /* Rounded corners */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+  border: 1px solid rgba(211, 209, 209, 0.8); /* Subtle white border */
   padding: 20px; /* Padding for content spacing */
+  /* Swap the inset shadows */
+  box-shadow: inset 10px 10px 15px rgba(0, 0, 0, 0.2),
+    /* Lighter dark inset on bottom-right */ inset -10px -10px 15px
+      rgba(255, 255, 255, 0.9); /* Light inset on top-left */
 }
 
 .social-link {
@@ -18,7 +21,7 @@
   border-radius: 50%;
   font-size: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
+  border: 1px solid rgba(211, 209, 209, 0.8);
   background-color: #f8f9fa;
   margin: 15px;
 }
@@ -46,4 +49,21 @@
 .social-link:nth-child(4):hover {
   background: #d44638;
   color: #fff;
+}
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+  .glass-card {
+    padding: 15px; /* Reduce padding */
+  }
+
+  .social-link {
+    width: 50px; /* Smaller size */
+    height: 50px; /* Smaller size */
+    font-size: 20px; /* Smaller font */
+    margin: 10px; /* Reduced margin */
+  }
+
+  .social-link:hover {
+    transform: scale(1.1); /* Smaller hover scale */
+  }
 }

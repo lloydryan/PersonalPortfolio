@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 fixed-top">
       <div className="container">
         <NavLink className="navbar-brand text-xl font-bold" to="/">
-          My Portfolio
+          <img src="/logo.png" alt="Logo" className="navbar-logo" />
         </NavLink>
         <button
           className="navbar-toggler"

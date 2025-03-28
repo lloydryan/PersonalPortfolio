@@ -5,7 +5,7 @@ const ConnectWithMe = () => {
   return (
     <div className="container d-flex justify-content-center mt-5">
       <div className="glass-card text-center">
-        <h3 className="mb-4 fw-bold">CONNECT WITH ME</h3>
+        <h3 className="mb-4 fw-bold mt-3">CONNECT WITH ME</h3>
         <div className="d-flex justify-content-center gap-3">
           <a
             href="https://www.facebook.com/lloydryan.largo.7"
