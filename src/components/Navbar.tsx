@@ -1,15 +1,25 @@
-import "../styles/Navbar.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleToggle = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  // Trigger navbar animation when component mounts
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 fixed-top">
+    <nav
+      className={`navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 fixed-top ${
+        show ? "show-navbar" : ""
+      }`}
+    >
       <div className="container">
         <NavLink className="navbar-brand text-xl font-bold" to="/">
           <img src="/logo.png" alt="Logo" className="navbar-logo" />

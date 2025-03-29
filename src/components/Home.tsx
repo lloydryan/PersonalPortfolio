@@ -10,7 +10,59 @@ const Home = () => {
 
   return (
     <div className="home-container container mt-5 p-5">
-      <h1 className="home-h1">Lloyd Ryan Largo</h1>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h1 className="home-h1" data-aos="fade-right" data-aos-duration="1000">
+        Lloyd Ryan Largo
+      </h1>
       <h2 className="home-h2">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
         temporibus.

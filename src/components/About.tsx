@@ -24,7 +24,12 @@ const About = () => {
       <h3 className="text-left mt-4">Languages and Tools:</h3>
       <div className="tech-grid">
         {Object.entries(groupedTechStack).map(([category, techNames]) => (
-          <div key={category} className="tech-card">
+          <div
+            key={category}
+            className="tech-card"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             <h4 className="tech-category">{category}</h4>
             <div className="tech-icons">
               {techStack

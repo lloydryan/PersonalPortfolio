@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Work.css"; // Custom styles for layout
 
@@ -10,8 +10,26 @@ import project4 from "../assets/images/project4.png";
 import project5 from "../assets/images/project5.png";
 import project6 from "../assets/images/project6.png";
 import TechCarousel, { techStack } from "./TechCarousel";
+import Aos from "aos";
 
 const Works = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 900); // Adjust breakpoint if needed
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 900);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Check on load
+
+    if (isSmallScreen) {
+      Aos.init({ duration: 1000 }); // Initialize AOS only for small screens
+    }
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isSmallScreen]);
+
   const [selectedWork, setSelectedWork] = useState<{
     id: number;
     title: string;
@@ -79,7 +97,11 @@ const Works = () => {
       <div className="row g-5">
         {works.map((work) => (
           <div key={work.id} className="col-12 col-sm-6 col-md-4">
-            <div className="work-card" onClick={() => setSelectedWork(work)}>
+            <div
+              className="work-card"
+              onClick={() => setSelectedWork(work)}
+              data-aos={isSmallScreen ? "fade-right" : ""}
+            >
               <img src={work.image} alt={work.title} className="img-fluid" />
               <div className="work-title">{work.title}</div>
             </div>

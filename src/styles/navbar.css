@@ -8,6 +8,14 @@
   max-width: 85%;
   padding: 8px 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.65s ease-out, opacity 0.65s ease-out;
+}
+/* Animate navbar when visible */
+.navbar.show-navbar {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* Fixes for navbar brand */
