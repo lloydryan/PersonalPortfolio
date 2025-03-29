@@ -17,6 +17,7 @@ const Works = () => {
     title: string;
     image: string;
     description: string;
+    gallery: string[];
   } | null>(null);
 
   const works = [
@@ -25,14 +26,16 @@ const Works = () => {
       title: "E-Commerce Platform",
       image: project1,
       description:
-        "This is an e-commerce platform with a seamless UI/UX experience .",
+        "This is an e-commerce platform with a seamless UI/UX experience.",
+      gallery: [project2, project4, project3],
     },
     {
       id: 2,
       title: "Movie Searcher & Chat App",
       image: project2,
       description:
-        "A Web Movie searcher and a real-time chat application using WebSockets and Node.js.",
+        "A web movie searcher and a real-time chat application using WebSockets and Node.js.",
+      gallery: [project1, project3, project5],
     },
     {
       id: 3,
@@ -40,26 +43,30 @@ const Works = () => {
       image: project3,
       description:
         "A CMS system for content management with rich text editing.",
+      gallery: [project1, project4, project6],
     },
     {
       id: 4,
       title: "Project 4",
       image: project4,
       description: "A portfolio website built using React and Bootstrap.",
+      gallery: [project2, project3, project5],
     },
     {
       id: 5,
-      title: "Web Design For a Company",
+      title: "Web Design for a Company",
       image: project5,
       description:
-        "This is Project 1, a web design concept focused on minimalism .",
+        "A web design concept focused on minimalism for a corporate client.",
+      gallery: [project1, project3, project6],
     },
     {
       id: 6,
       title: "SafeTrack",
       image: project6,
       description:
-        "A mobile application built using Flutter for real-time tracking .",
+        "A mobile application built using Flutter for real-time tracking.",
+      gallery: [project2, project4, project5],
     },
   ];
 
@@ -68,7 +75,7 @@ const Works = () => {
       <br />
       <h1 className="mb-4">Most Recent Projects</h1>
 
-      {/* Grid Layout with Equal Heights */}
+      {/* Grid Layout */}
       <div className="row g-5">
         {works.map((work) => (
           <div key={work.id} className="col-12 col-sm-6 col-md-4">
@@ -93,14 +100,43 @@ const Works = () => {
                   onClick={() => setSelectedWork(null)}
                 ></button>
               </div>
-              <div className="modal-body text-center">
-                <img
-                  src={selectedWork.image}
-                  alt={selectedWork.title}
-                  className="img-fluid rounded mb-3"
-                />
-                <p>{selectedWork.description}</p>
+              <div className="modal-body">
+                <div className="modal-grid">
+                  {/* Main Image (Div 1) */}
+                  <div className="main-image">
+                    <img
+                      src={selectedWork.image}
+                      alt={selectedWork.title}
+                      className="img-fluid"
+                    />
+                  </div>
+                  {/* Thumbnail 1 (Div 2) */}
+                  <div className="thumb thumb-1">
+                    <img
+                      src={selectedWork.gallery[0]}
+                      alt={`${selectedWork.title} thumbnail 1`}
+                      className="img-fluid"
+                    />
+                  </div>
+                  {/* Thumbnail 2 (Div 3) */}
+                  <div className="thumb thumb-2">
+                    <img
+                      src={selectedWork.gallery[1]}
+                      alt={`${selectedWork.title} thumbnail 2`}
+                      className="img-fluid"
+                    />
+                  </div>
+                  {/* Thumbnail 3 (Div 4) */}
+                  <div className="thumb thumb-3">
+                    <img
+                      src={selectedWork.gallery[2]}
+                      alt={`${selectedWork.title} thumbnail 3`}
+                      className="img-fluid"
+                    />
+                  </div>
+                </div>
               </div>
+              <p>{selectedWork.description}</p>
             </div>
           </div>
         </div>
