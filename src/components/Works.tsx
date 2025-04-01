@@ -94,7 +94,7 @@ const Works = () => {
       <h1 className="mb-4">Most Recent Projects</h1>
 
       {/* Grid Layout */}
-      <div className="row g-5">
+      <div className="row g-3">
         {works.map((work) => (
           <div key={work.id} className="col-12 col-sm-6 col-md-4">
             <div

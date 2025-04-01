@@ -1,3 +1,16 @@
+.cursor {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: grey;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 /* Container styling */
 .home-container {
   text-align: left;
