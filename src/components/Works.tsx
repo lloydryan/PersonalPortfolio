@@ -10,33 +10,27 @@ import project4 from "../assets/images/project4.png";
 import project5 from "../assets/images/project5.png";
 import project6 from "../assets/images/project6.png";
 import TechCarousel, { techStack } from "./TechCarousel";
-import Aos from "aos";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Works = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 900); // Adjust breakpoint if needed
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
+    AOS.init({ duration: 1000, once: true }); // Initialize AOS
+
+    // Update screen size on resize
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 900);
+      setIsSmallScreen(window.innerWidth <= 768);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Check on load
-
-    if (isSmallScreen) {
-      Aos.init({ duration: 1000 }); // Initialize AOS only for small screens
-    }
-
     return () => window.removeEventListener("resize", handleResize);
-  }, [isSmallScreen]);
+  }, []);
 
-  const [selectedWork, setSelectedWork] = useState<{
-    id: number;
-    title: string;
-    image: string;
-    description: string;
-    gallery: string[];
-  } | null>(null);
+  const [selectedWork, setSelectedWork] = useState<
+    (typeof works)[number] | null
+  >(null);
 
   const works = [
     {
@@ -95,18 +89,46 @@ const Works = () => {
 
       {/* Grid Layout */}
       <div className="row g-3">
-        {works.map((work) => (
-          <div key={work.id} className="col-12 col-sm-6 col-md-4">
+        {works.map((work, index) => {
+          let delay;
+
+          switch (index) {
+            case 0:
+              delay = 100;
+              break;
+            case 1:
+              delay = 200;
+              break;
+            case 2:
+              delay = 300;
+              break;
+            case 3:
+              delay = 400;
+              break;
+            case 4:
+              delay = 500;
+              break;
+            case 5:
+              delay = 600;
+              break;
+            default:
+              delay = index * 200;
+          }
+
+          return (
             <div
-              className="work-card"
-              onClick={() => setSelectedWork(work)}
-              data-aos={isSmallScreen ? "fade-right" : ""}
+              key={work.id}
+              className="col-12 col-sm-6 col-md-4"
+              data-aos={isSmallScreen ? "fade-left" : "fade-up"}
+              data-aos-delay={isSmallScreen ? 0 : delay}
             >
-              <img src={work.image} alt={work.title} className="img-fluid" />
-              <div className="work-title">{work.title}</div>
+              <div className="work-card" onClick={() => setSelectedWork(work)}>
+                <img src={work.image} alt={work.title} className="img-fluid" />
+                <div className="work-title">{work.title}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Fullscreen Modal */}
@@ -124,7 +146,7 @@ const Works = () => {
               </div>
               <div className="modal-body">
                 <div className="modal-grid">
-                  {/* Main Image (Div 1) */}
+                  {/* Main Image */}
                   <div className="main-image">
                     <img
                       src={selectedWork.image}
@@ -132,30 +154,16 @@ const Works = () => {
                       className="img-fluid"
                     />
                   </div>
-                  {/* Thumbnail 1 (Div 2) */}
-                  <div className="thumb thumb-1">
-                    <img
-                      src={selectedWork.gallery[0]}
-                      alt={`${selectedWork.title} thumbnail 1`}
-                      className="img-fluid"
-                    />
-                  </div>
-                  {/* Thumbnail 2 (Div 3) */}
-                  <div className="thumb thumb-2">
-                    <img
-                      src={selectedWork.gallery[1]}
-                      alt={`${selectedWork.title} thumbnail 2`}
-                      className="img-fluid"
-                    />
-                  </div>
-                  {/* Thumbnail 3 (Div 4) */}
-                  <div className="thumb thumb-3">
-                    <img
-                      src={selectedWork.gallery[2]}
-                      alt={`${selectedWork.title} thumbnail 3`}
-                      className="img-fluid"
-                    />
-                  </div>
+                  {/* Gallery Thumbnails */}
+                  {selectedWork.gallery.map((image, idx) => (
+                    <div key={idx} className={`thumb thumb-${idx + 1}`}>
+                      <img
+                        src={image}
+                        alt={`${selectedWork.title} thumbnail ${idx + 1}`}
+                        className="img-fluid"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
               <p>{selectedWork.description}</p>
